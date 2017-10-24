@@ -3,7 +3,7 @@ Basic usage of the extension
 
 Example: Assets/DialogNodeEditor/Example
 
-![](./README/Canvas.png = 500px)
+![](./README/Canvas.png)
 
 ## Canvas
 ### Entry
