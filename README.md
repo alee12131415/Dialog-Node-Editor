@@ -1,5 +1,5 @@
 # Dialog Node Editor
-Basic usage of the extension
+Basic usage of the extension.
 
 Example: Assets/DNE/Example
 
@@ -47,8 +47,7 @@ Build
 * BuildObject is used for production
 * Cannot Load BuildObjects
 
-### using DNE
-## BuildObject
+## DNE.BuildObject
 BuildObject is used to traverse the dialog. Dialog is traversed only one way.
 ### Get()
 Returns Clone of the BuildObject class. Used if you do not want to edit the asset file.
@@ -60,7 +59,7 @@ Returns BuildNode class of the current dialog node
 ### Reset()
 Resets class back to the entry dialog node
 
-## BuildNode
+## DNE.BuildNode
 Representation of the dialog node
 ### Title
 Returns title of the node
