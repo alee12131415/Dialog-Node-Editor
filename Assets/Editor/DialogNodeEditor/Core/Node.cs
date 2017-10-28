@@ -8,7 +8,7 @@ using System;
 /// not abstract because unity reccommends it
 /// </summary>
 
-namespace DNE {
+namespace DNECore {
     public abstract class Node {
         public Rect rect;
         public string title;

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using System;
 
-namespace DNE {
+namespace DNECore {
     public class Connection {
         public ConnectionPoint inPoint;
         public ConnectionPoint outPoint;

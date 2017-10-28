@@ -1,7 +1,7 @@
 # Dialog Node Editor
 Basic usage of the extension
 
-Example: Assets/DialogNodeEditor/Example
+Example: Assets/DNE/Example
 
 ![](./README/Canvas.png)
 
@@ -47,12 +47,14 @@ Build
 * BuildObject is used for production
 * Cannot Load BuildObjects
 
+### using DNE
 ## BuildObject
 BuildObject is used to traverse the dialog. Dialog is traversed only one way.
 ### Get()
 Returns Clone of the BuildObject class. Used if you do not want to edit the asset file.
 ### Next(string option)
-Iterates to the next dialog node
+returns next BuildNode in dialog.
+returns null if BuildNode is not found or reaches the end
 ### GetCurrent()
 Returns BuildNode class of the current dialog node
 ### Reset()
@@ -60,7 +62,9 @@ Resets class back to the entry dialog node
 
 ## BuildNode
 Representation of the dialog node
-### title
+### Title
 Returns title of the node
-### clip
+### Clip
 Returns AudioClip of the node
+### Triggers
+Returns List<string> of options

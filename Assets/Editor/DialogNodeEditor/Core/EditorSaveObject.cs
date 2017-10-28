@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-namespace DNE {
+namespace DNECore {
     public class EditorSaveObject : ScriptableObject {
         public List<NodeInfo> nodeinfos;
         public List<int> NodeCPIndex;

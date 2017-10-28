@@ -17,26 +17,26 @@ MonoBehaviour:
     triggers:
     - Hello
     next_index: 01000000
-  - title: How are you doing
+  - title: How are you?
     clip: {fileID: 8300000, guid: f25f940b1c34a0a439c3ca4c0047641b, type: 3}
     triggers:
     - good
     - bad
     next_index: 0200000003000000
-  - title: I am glad to hear
+  - title: Glad to hear
     clip: {fileID: 8300000, guid: c2a36d2edfe0df946932d84c545f3eb8, type: 3}
     triggers:
-    - default
+    - :)
     next_index: 04000000
-  - title: Sad to hear
+  - title: Sorry to hear
     clip: {fileID: 8300000, guid: 53f18b30828f4ad4bbbf067790886633, type: 3}
     triggers:
-    - default
+    - :(
     next_index: 04000000
   - title: Good bye
     clip: {fileID: 8300000, guid: ae552948e0b9d994dab58e8c0f462c63, type: 3}
     triggers:
-    - default
+    - End
     next_index: ffffffff
   start_index: 0
   current_index: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using System;
 
-namespace DNE {
+namespace DNECore {
     public enum ConnectionPointType { In, Out }
 
     public class ConnectionPoint {
@@ -59,8 +59,8 @@ namespace DNE {
         }
 
         public void SetStyle() {
-            style.normal.background = AssetDatabase.LoadAssetAtPath("Assets/DialogNodeEditor/Textures/grayTex.png", typeof(Texture2D)) as Texture2D;
-            style.active.background = AssetDatabase.LoadAssetAtPath("Assets/DialogNodeEditor/Textures/grayDarkTex.png", typeof(Texture2D)) as Texture2D;
+            style.normal.background = AssetDatabase.LoadAssetAtPath("Assets/Editor/DialogNodeEditor/Textures/grayTex.png", typeof(Texture2D)) as Texture2D;
+            style.active.background = AssetDatabase.LoadAssetAtPath("Assets/Editor/DialogNodeEditor/Textures/grayDarkTex.png", typeof(Texture2D)) as Texture2D;
         }
 
         public void Rebuild(Node node, ConnectionPointType type, Action<ConnectionPoint> OnClickConnectionPoint) {

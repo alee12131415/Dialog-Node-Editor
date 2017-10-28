@@ -12,84 +12,84 @@ MonoBehaviour:
   m_Name: Canvas
   m_EditorClassIdentifier: 
   nodeinfos:
-  - type: DNE.StartNode
+  - type: DNECore.StartNode
     rect:
       serializedVersion: 2
-      x: -620
-      y: 277
+      x: -46
+      y: 409
       width: 200
       height: 100
     title: 
     clip: {fileID: 0}
     triggers: []
-  - type: DialogNode
+  - type: DNECore.DialogNode
     rect:
       serializedVersion: 2
-      x: -341
-      y: 270
+      x: 230
+      y: 405
       width: 300
       height: 114.265625
     title: Hello
     clip: {fileID: 8300000, guid: 97559ef45c1c07441a302b1cd3ab59fb, type: 3}
     triggers:
     - Hello
-  - type: DialogNode
+  - type: DNECore.DialogNode
     rect:
       serializedVersion: 2
-      x: 13
-      y: 265
+      x: 582
+      y: 397
       width: 300
       height: 132.26562
-    title: How are you doing
+    title: How are you?
     clip: {fileID: 8300000, guid: f25f940b1c34a0a439c3ca4c0047641b, type: 3}
     triggers:
     - good
     - bad
-  - type: DialogNode
+  - type: DNECore.DialogNode
     rect:
       serializedVersion: 2
-      x: 434
-      y: 173
+      x: 1001
+      y: 313
       width: 300
       height: 114.265625
-    title: I am glad to hear
+    title: Glad to hear
     clip: {fileID: 8300000, guid: c2a36d2edfe0df946932d84c545f3eb8, type: 3}
     triggers:
-    - default
-  - type: DialogNode
+    - :)
+  - type: DNECore.DialogNode
     rect:
       serializedVersion: 2
-      x: 434
-      y: 360
+      x: 1006
+      y: 496
       width: 300
       height: 114.265625
-    title: Sad to hear
+    title: Sorry to hear
     clip: {fileID: 8300000, guid: 53f18b30828f4ad4bbbf067790886633, type: 3}
     triggers:
-    - default
-  - type: DialogNode
+    - :(
+  - type: DNECore.DialogNode
     rect:
       serializedVersion: 2
-      x: 821
-      y: 281
+      x: 1388
+      y: 414
       width: 300
       height: 114.265625
     title: Good bye
     clip: {fileID: 8300000, guid: ae552948e0b9d994dab58e8c0f462c63, type: 3}
     triggers:
-    - default
-  - type: DNE.EndNode
+    - End
+  - type: DNECore.EndNode
     rect:
       serializedVersion: 2
-      x: 1208
-      y: 288
+      x: 1734
+      y: 418
       width: 200
       height: 100
     title: 
     clip: {fileID: 0}
     triggers: []
   NodeCPIndex: 01000000020000000300000002000000020000000200000001000000
-  ConnectionIndexIn: 010000000300000006000000080000000c0000000a0000000a000000
-  ConnectionIndexOut: 000000000200000004000000050000000b0000000700000009000000
+  ConnectionIndexIn: 010000000c0000000a0000000a000000060000000800000003000000
+  ConnectionIndexOut: 000000000b0000000700000009000000040000000500000002000000
   NumberOfCP: 13
-  offset: {x: -763, y: 117}
+  offset: {x: -268, y: 18}

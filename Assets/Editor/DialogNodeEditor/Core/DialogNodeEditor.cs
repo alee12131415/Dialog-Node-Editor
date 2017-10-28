@@ -5,6 +5,7 @@ using UnityEditor;
 using System.Linq;
 using System.Reflection;
 using System;
+using DNECore;
 using DNE;
 
 /// <summary>
@@ -260,24 +261,25 @@ public class DialogNodeEditor : EditorWindow {
         //creates friendly version for loading at runtime
         if (nodes == null) nodes = new List<Node>();
         if (connections == null) connections = new List<Connection>();
-        BuildObject build = CreateInstance<BuildObject>();
+        List<BuildNode> buildNodes = new List<BuildNode>();
 
         //build node array
         List<Node> node_index_reference = new List<Node>();
         for (int i = 0; i < nodes.Count; i++) {
             if (nodes[i].GetType() == typeof(DialogNode)) {
                 node_index_reference.Add(nodes[i]);
-                build.nodes.Add(new BuildNode(nodes[i].GetInfo()));
+                NodeInfo temp = nodes[i].GetInfo();
+                buildNodes.Add(new BuildNode(temp.title, temp.clip, temp.triggers));
             }
         }
         
-        //build next indexes
+        //build next indexes //indices?
         for (int i = 0; i < node_index_reference.Count; i++) {
             for (int j = 0; j < connections.Count; j++) {
                 if (connections[j].outPoint.node == node_index_reference[i]) {
                     int index_of_next = node_index_reference.IndexOf(connections[j].inPoint.node);
                     int index_of_trigger = ((DialogNode)node_index_reference[i]).outPoints.IndexOf(connections[j].outPoint);
-                    build.nodes[i].next_index[index_of_trigger] = index_of_next;
+                    buildNodes[i].next_index[index_of_trigger] = index_of_next;
                 }
             }
         }
@@ -303,8 +305,9 @@ public class DialogNodeEditor : EditorWindow {
             Debug.LogError("Start Node not connected to anything");
             return;
         }
-        build.start_index = starting_index;
-        build.current_index = starting_index;
+
+        BuildObject build = CreateInstance<BuildObject>();
+        build.Init(buildNodes, starting_index, starting_index);
 
         //
         AssetDatabase.CreateAsset(build, path);
