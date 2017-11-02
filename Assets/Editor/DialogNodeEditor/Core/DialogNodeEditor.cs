@@ -188,43 +188,55 @@ public class DialogNodeEditor : EditorWindow {
     #endregion
 
     #region Save/Load/Build
-    public void SaveCanvas(string path) {
-        if (nodes == null) nodes = new List<Node>();
-        if (connections == null) connections = new List<Connection>();
-        EditorSaveObject save = BuildSaveObject();
-        AssetDatabase.CreateAsset(save, path);
+    public string SaveCanvas(string path) {
+        //TODO better way than try catch block AND change to return bool?
+        try {
+            if (nodes == null) nodes = new List<Node>();
+            if (connections == null) connections = new List<Connection>();
+            EditorSaveObject save = BuildSaveObject();
+            AssetDatabase.CreateAsset(save, path);
+        } catch(Exception e) {
+            return e.Message;
+        }
+        return null;
     }
 
-    public void LoadCanvas(string path) {
-        //EditorSaveObject load = Resources.Load(path) as EditorSaveObject;
-        EditorSaveObject load = AssetDatabase.LoadAssetAtPath(path, typeof(EditorSaveObject)) as EditorSaveObject;
-        
-        //build new CP / Index
-        List<ConnectionPoint> CPIndex = new List<ConnectionPoint>();
-        for (int i = 0; i < load.NumberOfCP; i++) {
-            CPIndex.Add(new ConnectionPoint());
-        }
+    public string LoadCanvas(string path) {
+        //SAME AS SAVE CANVAS
+        try {
+            //EditorSaveObject load = Resources.Load(path) as EditorSaveObject;
+            EditorSaveObject load = AssetDatabase.LoadAssetAtPath(path, typeof(EditorSaveObject)) as EditorSaveObject;
 
-        //build nodes
-        int spent = 0; //tracks index of used CP
-        nodes = new List<Node>();
-        for (int i = 0; i < load.nodeinfos.Count; i++) {
-            Type t = Type.GetType(load.nodeinfos[i].type);
-            ConstructorInfo ctor = t.GetConstructor(new[] { GetType(), typeof(NodeInfo) });
-            Node n = (Node)Convert.ChangeType(ctor.Invoke(new object[] { this, load.nodeinfos[i] }), t);
-            n.Rebuild(CPIndex.GetRange(spent, load.NodeCPIndex[i]));
-            spent += load.NodeCPIndex[i];
-            AddNode(n);
-        }
-        
-        //build connections
-        connections = new List<Connection>();
-        for (int i = 0; i < load.ConnectionIndexIn.Count; i++) {
-            connections.Add(new Connection(CPIndex[load.ConnectionIndexIn[i]], CPIndex[load.ConnectionIndexOut[i]], RemoveConnection));
-        }
+            //build new CP / Index
+            List<ConnectionPoint> CPIndex = new List<ConnectionPoint>();
+            for (int i = 0; i < load.NumberOfCP; i++) {
+                CPIndex.Add(new ConnectionPoint());
+            }
 
-        offset = new Vector2(load.offset.x, load.offset.y);
-        drag = Vector2.zero;
+            //build nodes
+            int spent = 0; //tracks index of used CP
+            nodes = new List<Node>();
+            for (int i = 0; i < load.nodeinfos.Count; i++) {
+                Type t = Type.GetType(load.nodeinfos[i].type);
+                ConstructorInfo ctor = t.GetConstructor(new[] { GetType(), typeof(NodeInfo) });
+                Node n = (Node)Convert.ChangeType(ctor.Invoke(new object[] { this, load.nodeinfos[i] }), t);
+                n.Rebuild(CPIndex.GetRange(spent, load.NodeCPIndex[i]));
+                spent += load.NodeCPIndex[i];
+                AddNode(n);
+            }
+
+            //build connections
+            connections = new List<Connection>();
+            for (int i = 0; i < load.ConnectionIndexIn.Count; i++) {
+                connections.Add(new Connection(CPIndex[load.ConnectionIndexIn[i]], CPIndex[load.ConnectionIndexOut[i]], RemoveConnection));
+            }
+
+            offset = new Vector2(load.offset.x, load.offset.y);
+            drag = Vector2.zero;
+        } catch (Exception e) {
+            return e.Message;
+        }
+        return null;
     }
 
     private EditorSaveObject BuildSaveObject() {
