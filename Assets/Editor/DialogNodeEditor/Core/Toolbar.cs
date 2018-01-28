@@ -18,6 +18,7 @@ namespace DNECore {
         private bool clickedSaveAs;
         private bool clickedLoad;
         private bool clickedBuild;
+        private bool clickedMoveToStart;
         private string path;
         private string message;
 
@@ -37,6 +38,7 @@ namespace DNECore {
             clickedSaveAs = GUILayout.Button(new GUIContent("Save As"), EditorStyles.toolbarButton, GUILayout.Width(50));
             clickedLoad = GUILayout.Button(new GUIContent("Load"), EditorStyles.toolbarButton, GUILayout.Width(50));
             clickedBuild = GUILayout.Button(new GUIContent("Build"), EditorStyles.toolbarButton, GUILayout.Width(50));
+            clickedMoveToStart = GUILayout.Button(new GUIContent("Move to Start"), EditorStyles.toolbarButton, GUILayout.Width(100));
 
             if (path != null) {
                 float width = (new GUIStyle()).CalcSize((new GUIContent(path))).x;
@@ -105,6 +107,10 @@ namespace DNECore {
                     message = "Save Success at: " + System.DateTime.Now;
                 }
             }
+        }
+
+        public void setMessage(string msg) {
+            message = msg;
         }
     }
 }

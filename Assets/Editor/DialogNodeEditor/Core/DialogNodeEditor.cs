@@ -331,6 +331,16 @@ public class DialogNodeEditor : EditorWindow {
             nodes = new List<Node>();
         }
 
+        //look for start node, reject if start node exists
+        if (node.GetType() == typeof(StartNode)) {
+            foreach (Node n in nodes) {
+                if (n.GetType() == typeof(StartNode)) {
+                    toolbar.setMessage("Cannot create more than 1 Start Node");
+                    return;
+                }
+            }
+        }
+
         nodes.Add(node);
     }
 
