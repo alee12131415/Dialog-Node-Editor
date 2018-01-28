@@ -440,4 +440,16 @@ public class DialogNodeEditor : EditorWindow {
 
         nodes.Remove(node);
     }
+
+    public void MoveToStart() {
+        foreach (Node n in nodes) {
+            if (n.GetType() == typeof(StartNode)) {
+                float x = n.rect.x + (n.rect.width / 2);
+                float y = n.rect.y + (n.rect.height / 2);
+                float x_base = position.width / 2;
+                float y_base = position.height / 2;
+                OnDrag(new Vector2(x_base - x, y_base - y));
+            }
+        }
+    }
 }

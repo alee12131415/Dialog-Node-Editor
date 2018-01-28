@@ -94,6 +94,10 @@ namespace DNECore {
                     editor.BuildCanvas(path);
                 }
             }
+
+            if (clickedMoveToStart) {
+                editor.MoveToStart();
+            }
         }
 
         private void ProcessSaveAs() {
