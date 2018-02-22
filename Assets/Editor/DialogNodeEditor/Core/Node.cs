@@ -11,7 +11,7 @@ using System;
 namespace DNECore {
     public abstract class Node {
         public Rect rect;
-        public string title;
+        //public string title;
         public GUIStyle style = new GUIStyle();
         public DialogNodeEditor editor;
         public float width;

@@ -10,12 +10,15 @@ namespace DNECore {
         public List<ConnectionPoint> outPoints = new List<ConnectionPoint>();
         public List<string> triggers = new List<string>();
 
+        public string title;
+        public string text;
         public AudioClip clip;
 
         private float offset;
         private float button_height = EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing + 4f;
         private bool isAddClicked = false;
         private bool isRemoveClicked = false;
+        private Vector2 scroll;
 
         public DialogNode(DialogNodeEditor editor, Vector2 position) : base(editor, position) {
             Init(position);
@@ -25,6 +28,7 @@ namespace DNECore {
             Init(new Vector2(info.rect.x, info.rect.y));
             SetTriggers(info.triggers);
             clip = info.clip;
+            text = info.text;
             title = info.title;
         }
 
@@ -43,7 +47,7 @@ namespace DNECore {
 
         public override void Draw() {
             //calc height needed
-            rect.height = offset + ((2 + triggers.Count) * (EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing)) + 10 + button_height;
+            rect.height = offset + ((3 + triggers.Count) * (EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing)) + 10 + button_height + (EditorGUIUtility.singleLineHeight * 5);
 
 
             inPoint.Draw();
@@ -57,11 +61,13 @@ namespace DNECore {
             GUILayout.BeginVertical();
 
             title = EditorGUILayout.TextField("Title", title);
+            EditorGUILayout.PrefixLabel("Text");
+            text = EditorGUILayout.TextArea(text, GUILayout.Height(EditorGUIUtility.singleLineHeight * 5));
             clip = (AudioClip)EditorGUILayout.ObjectField("Audio", clip, typeof(AudioClip), false);
 
             GUILayout.BeginHorizontal();
-            isAddClicked = GUILayout.Button("+");
             isRemoveClicked = GUILayout.Button("-");
+            isAddClicked = GUILayout.Button("+");
             GUILayout.EndHorizontal();
 
             for (int i = 0; i < triggers.Count; i++) {
@@ -111,7 +117,7 @@ namespace DNECore {
         }
 
         public override NodeInfo GetInfo() {
-            return new NodeInfo(GetType().FullName, rect, title, clip, triggers);
+            return new NodeInfo(GetType().FullName, rect, title, text, clip, triggers);
         }
 
         public override void Rebuild(List<ConnectionPoint> cp) {

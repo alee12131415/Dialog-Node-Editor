@@ -28,14 +28,16 @@ namespace DNECore {
         public Rect rect;
 
         public string title;
+        public string text;
         public AudioClip clip;
         public List<string> triggers;
 
-        public NodeInfo(string type, Rect rect, string title = null, AudioClip clip = null, List<string> triggers = null) {
+        public NodeInfo(string type, Rect rect, string title = null, string text = null, AudioClip clip = null, List<string> triggers = null) {
             this.type = type;
             this.rect = rect;
-            this.clip = clip;
             this.title = title;
+            this.text = text;
+            this.clip = clip;
             this.triggers = triggers;
         }
     }

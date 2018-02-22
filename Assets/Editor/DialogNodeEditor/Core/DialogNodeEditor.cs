@@ -281,7 +281,7 @@ public class DialogNodeEditor : EditorWindow {
             if (nodes[i].GetType() == typeof(DialogNode)) {
                 node_index_reference.Add(nodes[i]);
                 NodeInfo temp = nodes[i].GetInfo();
-                buildNodes.Add(new BuildNode(temp.title, temp.clip, temp.triggers));
+                buildNodes.Add(new BuildNode(temp.title, temp.text, temp.clip, temp.triggers));
             }
         }
         
