@@ -12,28 +12,33 @@ MonoBehaviour:
   m_Name: Build
   m_EditorClassIdentifier: 
   nodes:
-  - title: Hello
+  - title: Node 1
+    text: Hello
     clip: {fileID: 8300000, guid: 97559ef45c1c07441a302b1cd3ab59fb, type: 3}
     triggers:
     - Hello
     next_index: 01000000
-  - title: How are you?
+  - title: Node 2
+    text: How are you?
     clip: {fileID: 8300000, guid: f25f940b1c34a0a439c3ca4c0047641b, type: 3}
     triggers:
     - good
     - bad
     next_index: 0200000003000000
-  - title: Glad to hear
+  - title: Node 3.1
+    text: Glad to hear that!
     clip: {fileID: 8300000, guid: c2a36d2edfe0df946932d84c545f3eb8, type: 3}
     triggers:
     - :)
     next_index: 04000000
-  - title: Sorry to hear
+  - title: Node 3.1
+    text: Sorry to hear that :(
     clip: {fileID: 8300000, guid: 53f18b30828f4ad4bbbf067790886633, type: 3}
     triggers:
     - :(
     next_index: 04000000
-  - title: Good bye
+  - title: Node 4
+    text: Goodbye
     clip: {fileID: 8300000, guid: ae552948e0b9d994dab58e8c0f462c63, type: 3}
     triggers:
     - End

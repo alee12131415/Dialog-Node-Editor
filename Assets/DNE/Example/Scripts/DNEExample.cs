@@ -19,7 +19,7 @@ public class DNEExample : MonoBehaviour {
         build = Resources.Load("Builds/Build") as BuildObject;
         build = build.Get(); //creates clone so that the build object does not get overwritten ie stays the same
 
-        setTitle();
+        setText();
         createButtons();
         setAudio();
 	}
@@ -49,8 +49,8 @@ public class DNEExample : MonoBehaviour {
         }
     }
 
-    private void setTitle() {
-        title.text = build.GetCurrent().Title;
+    private void setText() {
+        title.text = build.GetCurrent().Text;
     }
 
     private void setAudio() {
@@ -61,7 +61,7 @@ public class DNEExample : MonoBehaviour {
     private void OnButtonClick(string trigger) {
         BuildNode next = build.Next(trigger);
         if (next != null) {
-            setTitle();
+            setText();
             createButtons();
             setAudio();
         } else {

@@ -15,32 +15,35 @@ MonoBehaviour:
   - type: DNECore.StartNode
     rect:
       serializedVersion: 2
-      x: -46
-      y: 409
+      x: 109
+      y: 206
       width: 200
       height: 100
     title: 
+    text: 
     clip: {fileID: 0}
     triggers: []
   - type: DNECore.DialogNode
     rect:
       serializedVersion: 2
-      x: 230
-      y: 405
+      x: 385
+      y: 202
       width: 300
-      height: 114.265625
-    title: Hello
+      height: 212.26562
+    title: Node 1
+    text: Hello
     clip: {fileID: 8300000, guid: 97559ef45c1c07441a302b1cd3ab59fb, type: 3}
     triggers:
     - Hello
   - type: DNECore.DialogNode
     rect:
       serializedVersion: 2
-      x: 582
-      y: 397
+      x: 737
+      y: 194
       width: 300
-      height: 132.26562
-    title: How are you?
+      height: 230.26562
+    title: Node 2
+    text: How are you?
     clip: {fileID: 8300000, guid: f25f940b1c34a0a439c3ca4c0047641b, type: 3}
     triggers:
     - good
@@ -48,48 +51,52 @@ MonoBehaviour:
   - type: DNECore.DialogNode
     rect:
       serializedVersion: 2
-      x: 1001
-      y: 313
+      x: 1161
+      y: 67
       width: 300
-      height: 114.265625
-    title: Glad to hear
+      height: 212.26562
+    title: Node 3.1
+    text: Glad to hear that!
     clip: {fileID: 8300000, guid: c2a36d2edfe0df946932d84c545f3eb8, type: 3}
     triggers:
     - :)
   - type: DNECore.DialogNode
     rect:
       serializedVersion: 2
-      x: 1006
-      y: 496
+      x: 1162
+      y: 293
       width: 300
-      height: 114.265625
-    title: Sorry to hear
+      height: 212.26562
+    title: Node 3.1
+    text: Sorry to hear that :(
     clip: {fileID: 8300000, guid: 53f18b30828f4ad4bbbf067790886633, type: 3}
     triggers:
     - :(
   - type: DNECore.DialogNode
     rect:
       serializedVersion: 2
-      x: 1388
-      y: 414
+      x: 1543
+      y: 211
       width: 300
-      height: 114.265625
-    title: Good bye
+      height: 212.26562
+    title: Node 4
+    text: Goodbye
     clip: {fileID: 8300000, guid: ae552948e0b9d994dab58e8c0f462c63, type: 3}
     triggers:
     - End
   - type: DNECore.EndNode
     rect:
       serializedVersion: 2
-      x: 1734
-      y: 418
+      x: 1889
+      y: 215
       width: 200
       height: 100
     title: 
+    text: 
     clip: {fileID: 0}
     triggers: []
   NodeCPIndex: 01000000020000000300000002000000020000000200000001000000
   ConnectionIndexIn: 010000000c0000000a0000000a000000060000000800000003000000
   ConnectionIndexOut: 000000000b0000000700000009000000040000000500000002000000
   NumberOfCP: 13
-  offset: {x: -268, y: 18}
+  offset: {x: -666, y: -187}
